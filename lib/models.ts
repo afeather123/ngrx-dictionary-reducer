@@ -42,18 +42,6 @@ export class ChildManyAction<T> implements Action {
     constructor(public payload: T[]) {}
 }
 
-export class ChildSingleUpdateAction<T> implements Action {
-    readonly type
-    readonly childType = ChildActionTypes.SingleUpdate
-    constructor(public payload: Update<T>, public target: T) {}
-}
-
-export class ChildManyUpdateAction<T> implements Action {
-    readonly type
-    readonly childType = ChildActionTypes.ManyUpdate
-    constructor(public payload: [{update: Update<T>, target: T}]) {}
-}
-
 export class ChildClearAction implements Action {
     readonly type
     readonly childType = ChildActionTypes.Clear
@@ -63,9 +51,7 @@ export class ChildClearAction implements Action {
 
 export type ChildAction<Child> = ChildClearAction
                           | ChildManyAction<Child>
-                          | ChildManyUpdateAction<Child>
                           | ChildSingleAction<Child>
-                          | ChildSingleUpdateAction<Child>
 
 export type DictionaryEntityReducer<Child> =  {
     (state: DictionaryEntityState<Child>, 

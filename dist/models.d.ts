@@ -1,4 +1,4 @@
-import { EntityState, Update } from '@ngrx/entity';
+import { EntityState } from '@ngrx/entity';
 import { Action } from '@ngrx/store';
 export declare type IdSelectorStr<T> = {
     (model: T): string;
@@ -13,7 +13,7 @@ export declare type DictionaryNum<T> = {
 export declare abstract class Dictionary<T> implements DictionaryNum<T> {
     [id: string]: T;
 }
-export declare type NestedEntityState<T> = Dictionary<EntityState<T>>;
+export declare type DictionaryEntityState<T> = Dictionary<EntityState<T>>;
 export declare enum ChildActionTypes {
     Single = 0,
     Many = 1,
@@ -34,32 +34,13 @@ export declare class ChildManyAction<T> implements Action {
     readonly childType: ChildActionTypes;
     constructor(payload: T[]);
 }
-export declare class ChildSingleUpdateAction<T> implements Action {
-    payload: Update<T>;
-    target: T;
-    readonly type: any;
-    readonly childType: ChildActionTypes;
-    constructor(payload: Update<T>, target: T);
-}
-export declare class ChildManyUpdateAction<T> implements Action {
-    payload: [{
-        update: Update<T>;
-        target: T;
-    }];
-    readonly type: any;
-    readonly childType: ChildActionTypes;
-    constructor(payload: [{
-        update: Update<T>;
-        target: T;
-    }]);
-}
 export declare class ChildClearAction implements Action {
     readonly type: any;
     readonly childType: ChildActionTypes;
 }
-export declare type ChildAction<Child> = ChildClearAction | ChildManyAction<Child> | ChildManyUpdateAction<Child> | ChildSingleAction<Child> | ChildSingleUpdateAction<Child>;
-export declare type NestedEntityReducer<Child> = {
-    (state: NestedEntityState<Child>, action: ChildAction<Child>): NestedEntityState<Child>;
+export declare type ChildAction<Child> = ChildClearAction | ChildManyAction<Child> | ChildSingleAction<Child>;
+export declare type DictionaryEntityReducer<Child> = {
+    (state: DictionaryEntityState<Child>, action: ChildAction<Child>): DictionaryEntityState<Child>;
 };
 export declare type ChildReducer<T> = {
     (state: EntityState<T>, action: ChildAction<T>): EntityState<T>;

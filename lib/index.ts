@@ -6,10 +6,8 @@ import {
     ChildActionTypes,
     ChildClearAction,
     ChildManyAction,
-    ChildManyUpdateAction,
     ChildReducer,
     ChildSingleAction,
-    ChildSingleUpdateAction,
     DictionaryEntityReducer,
     DictionaryEntityState
 } from './models'
@@ -20,10 +18,8 @@ export {
     ChildActionTypes,
     ChildClearAction,
     ChildManyAction,
-    ChildManyUpdateAction,
     ChildReducer,
     ChildSingleAction,
-    ChildSingleUpdateAction,
     DictionaryEntityReducer,
     DictionaryEntityState,
     CreateDictionaryEntityReducer

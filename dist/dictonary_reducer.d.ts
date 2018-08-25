@@ -1,4 +1,4 @@
-import { IdSelector, ChildReducer, NestedEntityReducer } from './models';
-export declare function CreateNestedEntityReducer<Child>(selectParentId: IdSelector<Child>, childActions: {
+import { IdSelector, ChildReducer, DictionaryEntityReducer } from './models';
+export declare function CreateDictionaryEntityReducer<Child>(selectParentId: IdSelector<Child>, childActions: {
     [key: string]: string;
-}, childReducer: ChildReducer<Child>): NestedEntityReducer<Child>;
+}, childReducer: ChildReducer<Child>): DictionaryEntityReducer<Child>;

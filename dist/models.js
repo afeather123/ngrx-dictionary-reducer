@@ -26,21 +26,6 @@ class ChildManyAction {
     }
 }
 exports.ChildManyAction = ChildManyAction;
-class ChildSingleUpdateAction {
-    constructor(payload, target) {
-        this.payload = payload;
-        this.target = target;
-        this.childType = ChildActionTypes.SingleUpdate;
-    }
-}
-exports.ChildSingleUpdateAction = ChildSingleUpdateAction;
-class ChildManyUpdateAction {
-    constructor(payload) {
-        this.payload = payload;
-        this.childType = ChildActionTypes.ManyUpdate;
-    }
-}
-exports.ChildManyUpdateAction = ChildManyUpdateAction;
 class ChildClearAction {
     constructor() {
         this.childType = ChildActionTypes.Clear;

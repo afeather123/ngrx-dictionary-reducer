@@ -39,27 +39,6 @@ export function CreateDictionaryEntityReducer<Child>(
                     new_state[parent_id] = childReducer(state[parent_id], action)
                     return Object.assign({}, state, new_state)
                 }
-                case ChildActionTypes.ManyUpdate:
-                {
-                    const filteredPayloads = action.payload.reduce((acc, update) => {
-                        const parent_id = selectIdValue(update.target, selectParentId)
-                        if(!acc[parent_id]) acc[parent_id] = []
-                        acc[parent_id].push(update)
-                        return acc
-                    }, {})
-                    let new_state = {...state}
-                    for(let key in filteredPayloads) {
-                        new_state[key] = childReducer(state[key], {...action, payload: filteredPayloads[key]})
-                    }
-                    return new_state
-                }
-                case ChildActionTypes.SingleUpdate:
-                {
-                    const parent_id = selectIdValue(action.target, selectParentId)
-                    const new_state = {...state}
-                    new_state[parent_id] = childReducer(state[parent_id], action)
-                    return new_state
-                }
             }
         }
         return  state
