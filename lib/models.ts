@@ -1,4 +1,4 @@
-import {EntityState, Update} from '@ngrx/entity'
+import {EntityState} from '@ngrx/entity'
 import {Action} from '@ngrx/store'
 
 export type IdSelectorStr<T> = {
@@ -24,10 +24,7 @@ export type DictionaryEntityState<T> = Dictionary<EntityState<T>>
 export enum ChildActionTypes {
     Single,
     Many,
-    SingleUpdate,
-    ManyUpdate,
-    Clear,
-    Parent
+    Clear
 }
 
 export class ChildSingleAction<T> implements Action {
