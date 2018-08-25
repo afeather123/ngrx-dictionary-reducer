@@ -1,0 +1,32 @@
+{
+  "name": "ngrx-dictionary-reducer",
+  "version": "1.0.0",
+  "description": "Create a reducer that sorts by property from an existing reducer",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -d --skipLibCheck"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afeather123/ngrx-dictionary-reducer.git"
+  },
+  "keywords": [
+    "ngrx",
+    "reducer",
+    "angular"
+  ],
+  "author": "Alec Featherston <alecfeatherston@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afeather123/ngrx-dictionary-reducer/issues"
+  },
+  "homepage": "https://github.com/afeather123/ngrx-dictionary-reducer#readme",
+  "dependencies": {
+    "@ngrx/entity": "^6.1.0",
+    "@ngrx/store": "^6.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  }
+}
