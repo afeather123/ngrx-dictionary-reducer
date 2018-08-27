@@ -1,6 +1,6 @@
 {
   "name": "ngrx-dictionary-reducer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create a reducer that sorts by property from an existing reducer",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

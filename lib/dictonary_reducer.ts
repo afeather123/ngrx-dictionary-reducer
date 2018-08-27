@@ -28,15 +28,17 @@ export function CreateDictionaryEntityReducer<Child>(
                     const sorted = ParentSortMapEntities(action.payload, selectParentId)
                     const new_state = {}
                     for(let parent_id in sorted) {
-                        new_state[parent_id] = childReducer(state[parent_id], {...action, payload: sorted[parent_id]}) 
+                        const current_state = state[parent_id] || {entities: {}, ids: []}
+                        new_state[parent_id] = childReducer(current_state, {...action, payload: sorted[parent_id]}) 
                     }
                     return Object.assign({}, state, new_state)
                 }
                 case ChildActionTypes.Single:
                 {
                     const parent_id = selectIdValue(action.payload, selectParentId)
+                    const current_state = state[parent_id] || {entities: {}, ids: []}
                     const new_state = {}
-                    new_state[parent_id] = childReducer(state[parent_id], action)
+                    new_state[parent_id] = childReducer(current_state, action)
                     return Object.assign({}, state, new_state)
                 }
             }

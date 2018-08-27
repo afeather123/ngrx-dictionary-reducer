@@ -26,7 +26,6 @@ export enum ChildActionTypes {
     Many,
     Clear
 }
-
 export class ChildSingleAction<T> implements Action {
     readonly type
     readonly childType = ChildActionTypes.Single
@@ -43,8 +42,6 @@ export class ChildClearAction implements Action {
     readonly type
     readonly childType = ChildActionTypes.Clear
 }
-
-
 
 export type ChildAction<Child> = ChildClearAction
                           | ChildManyAction<Child>
